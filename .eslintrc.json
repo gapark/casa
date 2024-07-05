@@ -1,3 +1,76 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "no-undef": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "indent": ["error", 2],
+    "react/react-in-jsx-scope": "off",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 1
+      }
+    ],
+    "react/jsx-closing-bracket-location": "error",
+    "jsx-quotes": ["error", "prefer-single"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "@root/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@src/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@test/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@hooks/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@constants/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@typings/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@components/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@helpers/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "**",
+            "group": "external"
+          }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }
